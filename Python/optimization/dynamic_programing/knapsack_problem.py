@@ -90,12 +90,13 @@ def genPset(items):
     return pset
 
 
-"""
-Decision Tree
-"""
-
-
 def solve(items, avail):
+    """
+    Binary tree as Decision tree
+    :param items: list of item
+    :param avail: space left
+    :return:
+    """
     if len(items) == 0 or avail == 0:
         result = (0, ())
     elif items[0].getWeight() > avail:
@@ -121,6 +122,13 @@ def solve(items, avail):
 
 
 def fast_solve(items, avail, memo=None):
+    """
+    Use memorization to eliminate unnecessary calculation.
+    :param items:
+    :param avail:
+    :param memo:
+    :return:
+    """
     if memo == None:
         memo = {}
     if "{},{}".format(len(items), avail) in memo:
